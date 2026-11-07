@@ -1,0 +1,105 @@
+:root {
+  --bg: #f7f8fc;
+  --surface: #ffffff;
+  --text: #1c2033;
+  --muted: #5d6480;
+  --brand: #4f46e5;
+  --brand-soft: #eef0ff;
+  --border: #e3e6f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1220;
+    --surface: #171b2e;
+    --text: #e8eaf6;
+    --muted: #9aa1c2;
+    --brand: #8b86ff;
+    --brand-soft: #23284a;
+    --border: #2a3050;
+  }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1000px; margin: 0 auto; padding: 32px 20px 64px; min-height: 70vh; }
+
+.nav { position: sticky; top: 0; z-index: 10; background: var(--surface); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 1000px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.brand { font-size: 1.4rem; font-weight: 800; }
+.brand span { color: var(--brand); }
+.links { display: flex; gap: 6px; flex-wrap: wrap; }
+.links a { padding: 8px 14px; border-radius: 999px; font-weight: 600; color: var(--muted); }
+.links a:hover { background: var(--brand-soft); color: var(--brand); }
+.links a.active { background: var(--brand); color: #fff; }
+.burger { display: none; background: none; border: 1px solid var(--border); color: var(--text); font-size: 1.2rem; padding: 4px 12px; border-radius: 8px; cursor: pointer; }
+
+.hero { text-align: center; padding: 56px 0 40px; }
+.hero h1 { font-size: clamp(2.4rem, 7vw, 4rem); font-weight: 800; }
+.hero h1 span { color: var(--brand); }
+.hero p { color: var(--muted); max-width: 520px; margin: 12px auto 24px; font-size: 1.1rem; }
+.btn { display: inline-block; background: var(--brand); color: #fff; padding: 12px 24px; border-radius: 12px; font-weight: 700; }
+.btn:hover { opacity: 0.9; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px; transition: transform 0.15s, box-shadow 0.15s; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15); }
+.card .icon { font-size: 1.8rem; }
+.card h3 { margin-top: 6px; }
+.card small { color: var(--brand); font-weight: 600; }
+.card p { color: var(--muted); margin-top: 8px; font-size: 0.95rem; }
+
+.lesson h1 { font-size: 2rem; }
+.lesson h1 small { color: var(--brand); font-size: 1rem; font-weight: 600; }
+.lesson .intro { color: var(--muted); margin: 10px 0 8px; font-size: 1.05rem; }
+.lesson section { margin-top: 28px; }
+.lesson h2 { font-size: 1.3rem; margin-bottom: 12px; border-left: 4px solid var(--brand); padding-left: 10px; }
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+table { width: 100%; border-collapse: collapse; min-width: 480px; }
+th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { background: var(--brand-soft); color: var(--brand); font-size: 0.9rem; }
+tr:last-child td { border-bottom: none; }
+.lesson ul { padding-left: 22px; }
+.lesson li { margin-bottom: 6px; }
+
+.footer { text-align: center; color: var(--muted); padding: 24px; border-top: 1px solid var(--border); font-size: 0.9rem; }
+
+@media (max-width: 720px) {
+  .burger { display: block; }
+  .links { display: none; width: 100%; flex-direction: column; }
+  .links.open { display: flex; }
+}
+
+/* Tense detail + verbs */
+.section-title { font-size: 1.5rem; margin: 40px 0 6px; }
+.group-title { margin: 22px 0 10px; color: var(--brand); }
+.crumb { margin-bottom: 10px; color: var(--brand); font-weight: 600; }
+.form-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin-bottom: 14px; }
+.form-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.form-head .num { background: var(--brand); color: #fff; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 0.85rem; font-weight: 700; }
+.bn-tag { background: var(--brand-soft); color: var(--brand); border-radius: 999px; padding: 2px 10px; font-size: 0.85rem; font-weight: 600; }
+.structure { display: block; background: var(--brand-soft); color: var(--text); padding: 8px 12px; border-radius: 8px; font-size: 0.92rem; overflow-x: auto; }
+.form-card .en { font-size: 1.15rem; font-weight: 600; margin-top: 10px; }
+.form-card .bn-line { color: var(--muted); font-size: 1.1rem; }
+.pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 32px; font-weight: 600; color: var(--brand); }
+.search { width: 100%; padding: 12px 16px; margin: 14px 0 6px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 1rem; }
+.count { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
+
+/* Bilingual text, difference and note boxes */
+:root { --note-bg: #fff7e0; --note-border: #f0b429; --diff-bg: #eef7ff; --diff-border: #3b9ae1; --rule-bg: #eefaf0; --rule-border: #3fa55b; }
+@media (prefers-color-scheme: dark) {
+  :root { --note-bg: #2b2410; --note-border: #b8860b; --diff-bg: #13263a; --diff-border: #3b7fb8; --rule-bg: #142a1a; --rule-border: #2f8048; }
+}
+.bn { display: block; color: var(--muted); font-weight: 500; }
+h1 .bn, h2 .bn, h3 .bn { display: inline; margin-left: 8px; font-size: 0.85em; color: var(--brand); }
+th .bn { color: inherit; opacity: 0.85; font-weight: 500; }
+.bn-inline { color: var(--brand); font-size: 0.9em; margin-left: 6px; }
+.hero p.bn { color: var(--brand); margin-top: -8px; }
+.card p { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.sec-intro { color: var(--muted); margin-bottom: 10px; }
+.lesson td:first-child { font-weight: 600; }
+.box { border-radius: 14px; padding: 16px 18px; border-left: 5px solid var(--border); }
+.box h2 { border-left: none; padding-left: 0; }
+.box.note { background: var(--note-bg); border-left-color: var(--note-border); }
+.box.diff { background: var(--diff-bg); border-left-color: var(--diff-border); }
+.box.rule { background: var(--rule-bg); border-left-color: var(--rule-border); }
+.box .table-wrap { background: var(--surface); }
